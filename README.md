@@ -9,6 +9,19 @@ It provides:
 
 ---
 
+## Setup and Installation
+
+This project requires Python 3.7+.
+
+Before running the application, you need to install the required Python packages. These dependencies are listed in the `requirements.txt` file.
+
+To install them, run:
+
+```bash
+pip install -r requirements.txt
+```
+---
+
 ## 🔧 Features
 
 - **📁 CSV Import**: Load raw "Squidstat" `.csv` files
