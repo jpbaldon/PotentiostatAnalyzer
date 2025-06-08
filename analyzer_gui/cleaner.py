@@ -13,7 +13,7 @@ def clean_and_process_data(input_path: str, output_path: str) -> pd.DataFrame:
 
         df['Resistance(Ohm)'] = df['Voltage(V)'] / df['Current(A)']
 
-        # Combination of bfill and ffill ensures all NaNs are filled (provided one actual resistance value exists)
+        # Combination of bfill and ffill ensures all NaNs are filled (provided at least one actual resistance value exists)
         df['Resistance(Ohm)'] = df['Resistance(Ohm)'].bfill().ffill()
 
         df.to_csv(output_path, index=False)
