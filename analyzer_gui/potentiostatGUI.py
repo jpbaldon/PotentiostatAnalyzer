@@ -27,6 +27,36 @@ class potentiostatGUI(QWidget):
         self.tab_widget = QTabWidget()
         self.main_layout.addWidget(self.tab_widget)
 
+        self.sim_tab = QWidget()
+        sim_layout = QVBoxLayout()
+        self.sim_tab.setLayout(sim_layout)
+
+        self.start_sim_button = QPushButton("Start Simulation")
+        self.stop_sim_button = QPushButton("Stop Simulation")
+        self.stop_sim_button.setEnabled(False)
+
+        button_layout = QHBoxLayout()
+        button_layout.addWidget(self.start_sim_button)
+        button_layout.addWidget(self.stop_sim_button)
+
+        sim_layout.addLayout(button_layout)
+
+        self.sim_plot_tabs = QTabWidget()
+        sim_layout.addWidget(self.sim_plot_tabs)
+
+        self.sim_canvas_voltage = FigureCanvas(plt.figure(figsize=(5,4)))
+        self.sim_canvas_current = FigureCanvas(plt.figure(figsize=(5,4)))
+        self.sim_canvas_resistance = FigureCanvas(plt.figure(figsize=(5,4)))
+
+        self.sim_plot_tabs.addTab(self.sim_canvas_voltage, "Voltage")
+        self.sim_plot_tabs.addTab(self.sim_canvas_current, "Current")
+        self.sim_plot_tabs.addTab(self.sim_canvas_resistance, "Resistance")
+
+        self.tab_widget.addTab(self.sim_tab, "Live Simulation")
+
+        self.start_sim_button.clicked.connect(self.start_simulation)
+        self.stop_sim_button.clicked.connect(self.stop_simulation)
+
         self.data_tab = QWidget()
         data_layout = QVBoxLayout()
         self.data_tab.setLayout(data_layout)
@@ -60,36 +90,6 @@ class potentiostatGUI(QWidget):
         self.plot_tabs.addTab(self.canvas_resistance, "Resistance")
 
         self.tab_widget.addTab(self.data_tab, "Data Loader")
-
-        self.sim_tab = QWidget()
-        sim_layout = QVBoxLayout()
-        self.sim_tab.setLayout(sim_layout)
-
-        self.start_sim_button = QPushButton("Start Simulation")
-        self.stop_sim_button = QPushButton("Stop Simulation")
-        self.stop_sim_button.setEnabled(False)
-
-        button_layout = QHBoxLayout()
-        button_layout.addWidget(self.start_sim_button)
-        button_layout.addWidget(self.stop_sim_button)
-
-        sim_layout.addLayout(button_layout)
-
-        self.sim_plot_tabs = QTabWidget()
-        sim_layout.addWidget(self.sim_plot_tabs)
-
-        self.sim_canvas_voltage = FigureCanvas(plt.figure(figsize=(5,4)))
-        self.sim_canvas_current = FigureCanvas(plt.figure(figsize=(5,4)))
-        self.sim_canvas_resistance = FigureCanvas(plt.figure(figsize=(5,4)))
-
-        self.sim_plot_tabs.addTab(self.sim_canvas_voltage, "Voltage")
-        self.sim_plot_tabs.addTab(self.sim_canvas_current, "Current")
-        self.sim_plot_tabs.addTab(self.sim_canvas_resistance, "Resistance")
-
-        self.tab_widget.addTab(self.sim_tab, "Live Simulation")
-
-        self.start_sim_button.clicked.connect(self.start_simulation)
-        self.stop_sim_button.clicked.connect(self.stop_simulation)
 
         self.sim_thread = None
         self.output_path = None
@@ -179,9 +179,9 @@ class potentiostatGUI(QWidget):
                 fig = canvas.figure
                 fig.clear()
                 ax = fig.add_subplot(111)
-                ax.plot(data[key])
+                ax.plot(data['time'], data[key])
                 ax.set_title(f"Live {key.capitalize()}")
-                ax.set_xlabel("Time")
+                ax.set_xlabel("Time (s)")
                 ax.set_ylabel(key.capitalize())
                 fig.tight_layout()
                 canvas.draw()

@@ -1,5 +1,6 @@
 from PyQt6.QtCore import QObject, pyqtSignal, QTimer
 import random
+import time
 
 class RealTimeSimulator(QObject):
     data_signal = pyqtSignal(dict)
@@ -7,24 +8,25 @@ class RealTimeSimulator(QObject):
 
     def __init__(self):
         super().__init__()
-        self._data = {'voltage': [], 'current': [], 'resistance': []}
-        self._t = 0
+        self._data = {'time': [], 'voltage': [], 'current': [], 'resistance': []}
+        self._start_time = None
         self.timer = QTimer()
         self.timer.setInterval(100)
         self.timer.timeout.connect(self.generate_data)
 
     def run(self):
-        self._t = 0
-        self._data = {'voltage': [], 'current': [], 'resistance': []}
+        self._data = {'time': [], 'voltage': [], 'current': [], 'resistance': []}
+        self._start_time = time.time()
         self.timer.start()
 
     def generate_data(self):
-        if self._t >= 100:
+        elapsed = time.time() - self._start_time
+        if elapsed >= 30:
             self.timer.stop()
             self.finished_signal.emit()
             return
     
-        self._t += 1
+        self._data['time'].append(elapsed)
         self._data['voltage'].append(random.uniform(0, 5))
         self._data['current'].append(random.uniform(-0.01, 0.01))
         self._data['resistance'].append(random.uniform(1000,10000))
