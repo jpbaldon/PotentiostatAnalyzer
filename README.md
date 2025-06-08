@@ -51,3 +51,35 @@ electro_data_tools/
 │   └── cleaned_data.csv      # Cleaned output after processing
 ├── README.md
 └── requirements.txt
+```
+---
+## License
+
+This project is licensed under the **GNU General Public License v3 (GPLv3)**.  
+See the [LICENSE](LICENSE) file for the full text.
+
+By using PyQt and Qt under GPL, this project and any derivative works must also comply with the terms of the GPL.  
+This includes releasing the full source code to users and including the GPL license when distributing binaries.
+
+## Qt & PyQt Usage
+
+This project uses:
+
+- [**Qt**](https://www.qt.io/) – a C++ cross-platform application development framework  
+  Licensed under the GNU General Public License v3. See: https://www.qt.io/licensing
+
+- [**PyQt**](https://www.riverbankcomputing.com/software/pyqt/intro) – Python bindings for Qt provided by Riverbank Computing  
+  Licensed under the GNU General Public License v3. See: https://www.riverbankcomputing.com/commercial/license-faq
+
+## Distribution and Compliance
+
+If you distribute this application in binary form (e.g., `.exe`, `.app`, etc.), you must also:
+
+- Include a copy of the GPL license
+- Make the full source code available to recipients
+- Clearly indicate that the application uses Qt and PyQt under GPL terms
+
+## Acknowledgements
+
+- Qt © The Qt Company Ltd.
+- PyQt © Riverbank Computing Ltd.
