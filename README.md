@@ -32,7 +32,7 @@ To install them, run:
 pip install -r requirements.txt
 ```
 
-The C++/Qt (python backend) version does not require Python to be installed. Simply download the Release folder on a Windows machine and run HybridApp.exe.
+The C++/Qt (python backend) version does not require Python to be installed. Simply download the Build folder on a Windows machine and run HybridApp.exe.
 ---
 
 ## 🔧 Features
@@ -57,11 +57,9 @@ The C++/Qt (python backend) version does not require Python to be installed. Sim
 │   ├── plotter.py                  # Generates reusable Matplotlib plots
 │   └── tests/                      # test scripts
 ├── hybrid_app/
-│   ├── build
-│   |   ├── cpp_gui/
-│   |       └── Release             # Download this to run the C++/Qt version with python backend
-│   |           ├── HybridApp.exe   # Download this to run the C++/Qt version with python backend
-|   |           └── simulate.exe    # Python backend
+│   ├── build                       # Download this to run the C++/Qt version with python backend
+|   |   ├── HybridApp.exe           # Download this to run the C++/Qt version with python backend
+|   |   └── simulate.exe            # Python backend          
 |   ├── cpp_gui/
 |   |   └── C++ source files
 |   └── py_backend
