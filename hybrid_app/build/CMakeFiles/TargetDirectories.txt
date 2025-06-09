@@ -1,0 +1,4 @@
+C:/Users/jonat/Documents/GitHub/SquidstatProject/hybrid_app/build/CMakeFiles/ALL_BUILD.dir
+C:/Users/jonat/Documents/GitHub/SquidstatProject/hybrid_app/build/CMakeFiles/ZERO_CHECK.dir
+C:/Users/jonat/Documents/GitHub/SquidstatProject/hybrid_app/build/cpp_gui/CMakeFiles/HybridApp.dir
+C:/Users/jonat/Documents/GitHub/SquidstatProject/hybrid_app/build/cpp_gui/CMakeFiles/ALL_BUILD.dir

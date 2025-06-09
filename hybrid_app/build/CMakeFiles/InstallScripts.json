@@ -1,0 +1,8 @@
+{
+	"InstallScripts" : 
+	[
+		"C:/Users/jonat/Documents/GitHub/SquidstatProject/hybrid_app/build/cmake_install.cmake",
+		"C:/Users/jonat/Documents/GitHub/SquidstatProject/hybrid_app/build/cpp_gui/cmake_install.cmake"
+	],
+	"Parallel" : false
+}
