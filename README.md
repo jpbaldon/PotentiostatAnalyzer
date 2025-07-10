@@ -32,7 +32,7 @@ To install them, run:
 pip install -r requirements.txt
 ```
 
-The C++/Qt (python backend) version does not require Python to be installed. Simply download the **build** folder (inside the [hybrid_app](./hybrid_app)) on a Windows machine and run HybridApp.exe.
+The C++/Qt (python backend) version does not require Python to be installed. Simply download the **build** folder (inside the [hybrid_app](./hybrid_app) folder) on a Windows machine and run HybridApp.exe.
 
 ---
 
